@@ -72,16 +72,4 @@ make
 * `exec()` does **not** return if successful.
 * You can pass arguments and environment variables just like a normal command.
 
-## 📈 Visual Flow
-
-```mermaid
-flowchart TD
-    A[Parent Process] --> B{fork()}
-    B -->|Child| C[Child Process before exec]
-    C --> D[execvp("./child_exec", args)]
-    D --> E[New Program: child_exec]
-    B -->|Parent| F[Parent waits for child]
-    E --> G[Child exits, Parent resumes]
-```
-
 
