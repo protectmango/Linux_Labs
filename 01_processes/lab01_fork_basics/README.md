@@ -136,20 +136,6 @@ make
 Note how both processes start from the same code but diverge after `fork()`.
 Each process has its own **copy** of variables — changes in one don’t affect the other.
 
-## 📈 Visual Flow
-
-```mermaid
-flowchart TD
-    A[Parent Starts] --> B{fork()}
-    B -->|Returns 0| C[Child Process]
-    B -->|Returns PID| D[Parent Process]
-    C --> E[Child modifies value (42→52)]
-    D --> F[Parent modifies value (42→142)]
-    E --> G[Child exits]
-    F --> H[Parent exits]
-```
-
-```
 
 ---
 
