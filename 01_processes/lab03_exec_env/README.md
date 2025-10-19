@@ -40,18 +40,6 @@ Access via getenv():
 [PARENT] Child exited with status 0
 ```
 
-## 📈 Flow Diagram
-
-```mermaid
-flowchart TD
-    A[Parent Process] --> B{fork()}
-    B -->|Child| C[Set Custom Env + PATH]
-    C --> D[execvpe("child_env", args, env)]
-    D --> E[New Program: child_env]
-    B -->|Parent| F[Wait for child]
-    E --> G[Child exits, Parent resumes]
-```
-
 ## 🧩 Key Learnings
 
 * `execvpe()` and `execle()` allow passing explicit environment arrays.
