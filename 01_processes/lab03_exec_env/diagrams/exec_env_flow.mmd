@@ -1,0 +1,7 @@
+flowchart TD
+A[Parent Process] --> B{fork()}
+B -->|Child| C[Set Custom Env + PATH]
+C --> D[execvpe("child_env", args, env)]
+D --> E[New Program: child_env]
+B -->|Parent| F[Wait for child]
+E --> G[Child exits, Parent resumes]
