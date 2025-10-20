@@ -16,21 +16,19 @@ int main(void)
         // Child process
         printf("[CHILD] Before exec, PID = %d\n", getpid());
 
-        // Create a custom environment
+        // Define custom environment
         char *custom_env[] = {
             "CUSTOM_VAR=ChatServerLab",
             "VERSION=3.0",
-            "PATH=/usr/bin:/bin:.",  // ensure current dir is searched
             NULL
         };
 
-        char *args[] = {"child_env", "EnvLab", NULL};
 
-        // Replace current image with child_env using execvpe
-        execvpe(args[0], args, custom_env);
+        // Use execle: (path, argv[0], argv[1], ..., NULL, envp)
+        execle("./child_env", "child_env", "EnvLab", NULL, custom_env);
 
-        // Only reached if exec fails
-        perror("execvpe failed");
+        // Only runs if exec fails
+        perror("execle failed");
         exit(EXIT_FAILURE);
     } else {
         // Parent process
