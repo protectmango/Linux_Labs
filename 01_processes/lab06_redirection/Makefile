@@ -4,6 +4,8 @@ TARGET = redir_shell
 SRC = src/main.c
 
 all: $(TARGET)
+
+$(TARGET): $(SRC)
 	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
 
 clean:
