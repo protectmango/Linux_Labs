@@ -3,16 +3,6 @@
 ## 🎯 Objective
 Simulate UNIX pipelines (`cmd1 | cmd2 | cmd3`) using multiple `fork()` + `exec()` pairs connected via pipes.
 
-## 🧱 Folder Structure
-```
-
-lab05_command_pipeline/
-├── src/main.c
-├── Makefile
-└── diagrams/pipeline_flow.mmd
-
-````
-
 ## ⚙️ Build & Run
 ```bash
 make
